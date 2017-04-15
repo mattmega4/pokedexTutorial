@@ -40,6 +40,7 @@
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2PR-WR-K5X">
                                 <rect key="frame" x="20" y="129" width="335" height="518"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WUa-c1-s4z">
                                     <size key="itemSize" width="105" height="105"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -47,14 +48,14 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Ll5-wo-qy0">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PokeCell" id="Ll5-wo-qy0" customClass="PokeCellCollectionViewCell" customModule="pokedexTutorial" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4" translatesAutoresizingMaskIntoConstraints="NO" id="x7F-fA-3wE">
+                                                <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4" translatesAutoresizingMaskIntoConstraints="NO" id="x7F-fA-3wE">
                                                     <rect key="frame" x="0.0" y="0.0" width="105" height="80"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="80" id="FJ4-Vq-SA9"/>
@@ -79,8 +80,16 @@
                                             <constraint firstAttribute="bottom" secondItem="hq3-2H-dT9" secondAttribute="bottom" id="skk-NQ-Oay"/>
                                             <constraint firstItem="hq3-2H-dT9" firstAttribute="leading" secondItem="Ll5-wo-qy0" secondAttribute="leading" id="w1h-uG-MjY"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="hq3-2H-dT9" id="vx3-30-Kjm"/>
+                                            <outlet property="thumbImg" destination="x7F-fA-3wE" id="i4D-RQ-Gov"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="bnV-od-fdT"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="5mL-4W-gR3"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -101,6 +110,9 @@
                             <constraint firstItem="wNb-vg-5qM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zw9-fI-nnz"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="2PR-WR-K5X" id="BL8-pS-bPe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
