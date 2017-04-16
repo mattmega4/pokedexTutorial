@@ -82,6 +82,20 @@ class ViewController: UIViewController {
   }
   
   
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
+    if segue.identifier == "pokemonDetailVC" {
+      
+      if let detailsVC = segue.destination as? PokemonDetailViewController {
+        
+        if let poke = sender as? Pokemon  {
+          
+          detailsVC.pokemon = poke
+          
+        }
+      }
+    }
+  }
   
   
   @IBAction func musicButtonPressed(_ sender: UIButton) {
@@ -125,7 +139,9 @@ extension ViewController: UISearchBarDelegate {
   
   
   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    
     view.endEditing(true)
+    
   }
   
 }
@@ -135,6 +151,20 @@ extension ViewController: UICollectionViewDelegate {
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     
+    
+    var poke: Pokemon!
+    
+    if inSearchMode {
+      
+      poke = filteredPokemon[indexPath.row]
+      
+    } else {
+      
+      poke = pokemon[indexPath.row]
+      
+    }
+    
+    performSegue(withIdentifier: "pokemonDetailVC", sender: poke)
     
   }
   
